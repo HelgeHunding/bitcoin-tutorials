@@ -74,6 +74,9 @@ And your master password:
 `$ sudo nano /etc/ssh/sshd_config`  
 `PasswordAuthentication no`
 
+* Restart the SSH daemon.  
+`$ sudo systemctl restart ssh`
+
 ### Configure ZAP
 
 * Start the app and select:  
