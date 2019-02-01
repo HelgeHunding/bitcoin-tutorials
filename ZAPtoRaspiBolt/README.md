@@ -64,7 +64,7 @@ Host name:
 Port number:  
 `22`  
 Use user "bitcoin". User name:  
-`Bitcoin`  
+`bitcoin`  
 And your master password:  
 `PASSWORD_A`
 
