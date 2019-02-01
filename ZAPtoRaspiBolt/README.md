@@ -60,7 +60,7 @@ Follow the first three steps in https://github.com/Stadicus/guides/blob/master/r
 * On your Windows computer, start WinSCP. Connect to your Raspberry Pi with the same credentials used with Putty. For example:
 
 Host name:  
-`192.168.0.1`  
+`192.168.0.22`  
 Port number:  
 `22`  
 Use user "bitcoin". User name:  
