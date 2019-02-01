@@ -23,7 +23,8 @@ Install instructions: https://github.com/LN-Zap/zap-desktop#install
 
 * Restart LND :  
   `$ sudo systemctl restart lnd`  
-  
+(If LND doesn't start, restart the raspberry pi: `$ sudo shutdown -r now`)
+
 * Copy the new tls.cert to user "admin", as it is needed for lncli:  
     `$ sudo cp /home/bitcoin/.lnd/tls.cert /home/admin/.lnd`
 
@@ -45,6 +46,32 @@ Install instructions: https://github.com/LN-Zap/zap-desktop#install
 
 * Copy the admin.macaroon to your home directory:  
 `$ scp root@your.RaspiBolt.LAN.IP:/home/bitcoin/.lnd/data/chain/bitcoin/mainnet/admin.macaroon ~/`
+
+### On your Windows computer:
+
+Follow the first three steps in https://github.com/Stadicus/guides/blob/master/raspibolt/raspibolt_50_mainnet.md#temporarily-enable-password-login like this:
+* In the Raspberry Pi, as user "admin", edit the SSH config file and put a # in front of "PasswordAuthentication no" to disable the whole line. Save and exit.
+`$ sudo nano /etc/ssh/sshd_config`
+`# PasswordAuthentication no`
+
+* Restart the SSH daemon.
+`$ sudo systemctl restart ssh`
+
+* On your Windows computer, start WinSCP. Connect to your raspberry pi with the same credentials used with putty. For example 
+Host name:
+`192.168.0.1`
+Port number:
+`22`
+Use user "bitcoin". User name:
+`Bitcoin`
+And your master password:
+`PASSWORD_A`
+
+* Navigate to `/mnt/hdd/lnd`and download `tls.cert` to a folder on your windows computer. Then naivgate to `/mnt/hdd/lnd/data/chain/bitcoin/mainnet/` and download `admin.macaroon`. 
+
+* Dissable password login again. As user "admin", remove the `#` in front of "PasswordAuthentication no" to enable the line. Save and exit.
+`$ sudo nano /etc/ssh/sshd_config`
+`PasswordAuthentication no`
 
 ### Configure ZAP
 
